@@ -21,7 +21,7 @@ let actulyNbr = document.querySelector('#actulyNbr');
 let currentValue = '';
 let previousValue = '';
 let operation = null;
-let isEqual;
+let isEqual = false;
 
 // Event listeners for number buttons
 numbers.forEach(button => {
@@ -42,17 +42,58 @@ const operationButtons = [plus, minus, multiply, divide];
 operationButtons.forEach(button => {
     button.addEventListener('click', () => {
         if (currentValue === '') return;
-        if (previousValue !== '') calculate();
-        operation = button.value;
-        previousValue = currentValue + operation;
-        currentValue = '';
-        isEqual = false;
-        updateDisplay();
+        if (previousValue !== '') fastCalculate();
+        if (isEqual == true) {
+            operation = button.value;
+            previousValue = previousValue + operation;
+            currentValue = '';
+            isEqual = false;
+            updateDisplay();
+        }
+        else {
+            operation = button.value;
+            previousValue = currentValue + operation;
+            currentValue = '';
+            isEqual = false;
+            calculate();
+            updateDisplay();
+        }
     });
 });
 
 // Calculate function
 function calculate() {
+    let calculation;
+    const prev = parseFloat(previousValue);
+    const current = parseFloat(currentValue);
+    if (isNaN(prev) || isNaN(current)) return;
+
+    switch (operation) {
+        case '+':
+            calculation = prev + current;
+            previousValue = `${prev}+${current}=`
+            break;
+        case '-':
+            calculation = prev - current;
+            previousValue = `${prev}-${current}=`
+            break;
+        case '*':
+            calculation = prev * current;
+            previousValue = `${prev}x${current}=`
+            break;
+        case '/':
+            calculation = prev / current;
+            previousValue = `${prev}/${current}=`
+            break;
+        default:
+            return;
+    }
+    actulyNbr.value = calculation;
+    allCalc.value = previousValue;
+    previousValue = calculation;
+}
+
+function fastCalculate() {
     let calculation;
     const prev = parseFloat(previousValue);
     const current = parseFloat(currentValue);
@@ -98,13 +139,36 @@ c.addEventListener('click', () => {
 });
 
 ce.addEventListener('click', () => {
-    currentValue = '';
-    actulyNbr.value = "0";
+    if (isEqual == true) {
+        isEqual = false;
+        currentValue = '';
+        previousValue = '';
+        actulyNbr.value = "0";
+        allCalc.value = previousValue;
+        operation = null;
+    }
+    else {
+        currentValue = '';
+        actulyNbr.value = "0";
+    }
 });
 
 del.addEventListener('click', () => {
-    currentValue = currentValue.toString().slice(0, -1);
-    updateDisplay();
+    if (isEqual == true) {
+        isEqual = false;
+        currentValue = '';
+        previousValue = '';
+        actulyNbr.value = "0";
+        allCalc.value = previousValue;
+        operation = null;
+    }
+    else {
+        currentValue = currentValue.toString().slice(0, -1);
+        updateDisplay();
+        if (currentValue == "") {
+            actulyNbr.value = "0";
+        }
+    }
 });
 
 // Plus-Minus Toggle
@@ -117,7 +181,6 @@ plusMinus.addEventListener('click', () => {
 equals.addEventListener('click', () => {
     isEqual = true;
     calculate();
-    updateDisplay();
 });
 
 // Dot button event listener
