@@ -84,12 +84,24 @@ body {
   align-items: flex-end;
 }
 .calculator .calculator-content .calc-body .calc-screen div .screen-calc {
+  max-width: 333px;
+  overflow: hidden;
   font-family: "digital7";
 }
 .calculator .calculator-content .calc-body .calc-screen div #allCalc {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  text-align: right;
   font-size: 26px;
 }
 .calculator .calculator-content .calc-body .calc-screen div #actulyNbr {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  text-align: right;
   font-size: 64px;
 }
 .calculator .calculator-content .calc-body .calc-buttons {
