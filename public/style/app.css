@@ -1,47 +1,54 @@
 /* ########### FONTS ############ */
-
-
+@font-face {
+  font-family: "digital7";
+  src: url("../assets/fonts/digital-7.ttf");
+}
+@font-face {
+  font-family: "nexaExtraLight";
+  src: url("../assets/fonts/Nexa-ExtraLight.ttf");
+}
+@font-face {
+  font-family: "nexaHeavy";
+  src: url("../assets/fonts/Nexa-Heavy.ttf");
+}
 /* ############ BODY ############  */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-    min-width: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  min-width: 0;
 }
 
 body {
-    background-color: #FFFFFF;
-    font-family: Arial, Helvetica, sans-serif;
+  background-color: #5E4B86;
+  font-family: "nexaHeavy";
 }
 
 /* ########### HEADER ########### */
-
-
-/* ############ MAIN ############ */
-
-
-/* ########### FOOTER ########### */
-
-
 /* ######### RESPONSIVE ######### */
 /* ### SMARTPHONE ### */
-@media (max-width: 576px) {
-
-}
-
 /* ### TABLET ### */
-@media (min-width: 577px) and (max-width: 768px) {
-
-}
-
 /* ### DESKTOP ### */
-@media (min-width: 769px) and (max-width: 1024px) {
-
-}
-
 /* ### BIG DESKTOP ### */
-@media (min-width: 1025px) {
+/* ############ MAIN ############ */
+/* ######### RESPONSIVE ######### */
+/* ### SMARTPHONE ### */
+/* ### TABLET ### */
+/* ### DESKTOP ### */
+/* ### BIG DESKTOP ### */
+/* ### SECTION 1 ### */
+/* ######### RESPONSIVE ######### */
+/* ### SMARTPHONE ### */
+/* ### TABLET ### */
+/* ### DESKTOP ### */
+/* ### BIG DESKTOP ### */
+/* ########### FOOTER ########### */
+/* ######### RESPONSIVE ######### */
+/* ### SMARTPHONE ### */
+/* ### TABLET ### */
+/* ### DESKTOP ### */
+/* ### BIG DESKTOP ### */
 
-}
+/*# sourceMappingURL=app.css.map */
