@@ -21,10 +21,17 @@ let actulyNbr = document.querySelector('#actulyNbr');
 let currentValue = '';
 let previousValue = '';
 let operation = null;
+let isEqual;
 
 // Event listeners for number buttons
 numbers.forEach(button => {
     button.addEventListener('click', () => {
+        if (isEqual == true) {
+            previousValue = "";
+            currentValue = "";
+            operation = null
+            isEqual = false;
+        }
         currentValue += button.innerText;
         updateDisplay();
     });
@@ -39,6 +46,7 @@ operationButtons.forEach(button => {
         operation = button.value;
         previousValue = currentValue + operation;
         currentValue = '';
+        isEqual = false;
         updateDisplay();
     });
 });
@@ -53,21 +61,24 @@ function calculate() {
     switch (operation) {
         case '+':
             calculation = prev + current;
+            previousValue = `${prev}+${current}=`
             break;
         case '-':
             calculation = prev - current;
+            previousValue = `${prev}-${current}=`
             break;
         case '*':
             calculation = prev * current;
+            previousValue = `${prev}x${current}=`
             break;
         case '/':
             calculation = prev / current;
+            previousValue = `${prev}/${current}=`
             break;
         default:
             return;
     }
     currentValue = calculation;
-    previousValue = '';
 }
 
 // Update display
@@ -78,6 +89,7 @@ function updateDisplay() {
 
 // Clear and delete functions
 c.addEventListener('click', () => {
+    isEqual = false;
     currentValue = '';
     previousValue = '';
     actulyNbr.value = "0";
@@ -103,6 +115,7 @@ plusMinus.addEventListener('click', () => {
 
 // Equals button event listener
 equals.addEventListener('click', () => {
+    isEqual = true;
     calculate();
     updateDisplay();
 });
