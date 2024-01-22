@@ -1,5 +1,72 @@
-/* ### SECTION 1 ### */
-
+/* ### SECTION CALCULATOR ### */
+.calculator
+    height: 100vh
+    width: 100%
+    .calculator-content
+        height: 100%
+        width: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        .calc-body
+            padding: 15px
+            height: fit-content
+            width: fit-content
+            display: flex
+            flex-direction: column
+            // border: #5E4B86 5px solid
+            background: #5E4B86
+            border-radius: 10px
+            .calc-screen
+                height: 150px
+                width: 100%
+            .calc-buttons
+                height: 75%
+                width: 100%
+                display: flex
+                flex-direction: column
+                justify-content: center
+                gap: 15px
+                .calc-buttons-row
+                    width: 100%
+                    display: flex
+                    justify-content: center
+                    gap: 15px
+                    button
+                        font-family: "nexaHeavy"
+                        color: #FFFFFF
+                        font-size: 20px
+                        width: 80px
+                        height: 80px
+                        box-shadow: 0px 5px 10px rgba(51, 51, 51, 60%)
+                        transition: all 0.3s ease
+                        cursor: pointer
+                        border-radius: 5px
+                        border-bottom: 4px solid lighten(gray, 70%)
+                        background-color: #382C50
+                        border: none
+                    button:hover
+                        box-shadow: 0px 15px 25px -5px rgba(51, 51, 51, 60%)
+                        transform: scale(1.07)
+                        background-color: #514666
+                    button:active
+                        transition: all 0.1s ease
+                        box-shadow: 0px 4px 8px rgba(51, 51, 51, 40%)
+                        transform: scale(.98)
+                        background-color: #837B92
+                    .operator
+                        background-color: #F2D357
+                    .operator:hover
+                        background-color: #F4D96C
+                    .operator:active
+                        background-color: #F5DE81
+                    .special
+                        background-color: #412C50
+                    .special:hover
+                        background-color: #594666
+                    .special:active
+                        background-color: #71617C
+                    
 
 /* ######### RESPONSIVE ######### */
 /* ### SMARTPHONE ### */
