@@ -42,7 +42,6 @@ const operationButtons = [plus, minus, multiply, divide];
 operationButtons.forEach(button => {
     button.addEventListener('click', () => {
         if (currentValue === '') return;
-        if (previousValue !== '') fastCalculate();
         if (isEqual == true) {
             operation = button.value;
             previousValue = previousValue + operation;
@@ -51,6 +50,7 @@ operationButtons.forEach(button => {
             updateDisplay();
         }
         else {
+            if (previousValue !== '') fastCalculate();
             operation = button.value;
             previousValue = currentValue + operation;
             currentValue = '';
